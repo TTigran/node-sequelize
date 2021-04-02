@@ -4,5 +4,5 @@ const route  = express.Router();
 
 route.post("/tutorial",ctrl.create)
 route.get("/tutorial/:id",ctrl.findOne)
-route.get("/tutorial",ctrl.find)
+route.get("/tutorial",ctrl.findAllPublished)
 module.exports =  route
