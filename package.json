@@ -4,7 +4,7 @@
   "description": "Node.js Rest Apis with Express, Sequelize & MySQL",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "NODE_ENV=test nodemon server.js",
     "migrate:test": "NODE_ENV=test sequelize db:migrate --config config/db.json",
     "migrate:dev": "NODE_ENV=development sequelize db:migrate --config config/db.json",
     "migrate:prod": "NODE_ENV=production sequelize db:migrate --config config/db.json",

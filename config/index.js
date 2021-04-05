@@ -1,1 +1,2 @@
-export default require(`./${process.env.NODE_ENV}`);
+const config = require(`./db`);
+module.exports = config
