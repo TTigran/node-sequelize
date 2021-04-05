@@ -1,21 +1,28 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('WorkingDays', {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('UsersWorkingDays', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      weekDay: {
-        type: Sequelize.STRING
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {         // User hasMany WorkingDays n:n
+          model: 'Users',
+          key: 'id'
+        }
       },
-      workingDate: {
-        type: Sequelize.DATE
-      },
-      isWorking: {
-        type: Sequelize.BOOLEAN
+      workingDayId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {         // WorkingDays hasMany Users n:n
+          model: 'WorkingDays',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -27,7 +34,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('WorkingDays');
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('UsersWorkingDays');
   }
 };
