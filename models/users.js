@@ -1,12 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define("comment", {
-    name: {
+  const users = sequelize.define("users", {
+    email: {
+      unique: true,
       type: DataTypes.STRING
     },
-    text: {
+    password: {
       type: DataTypes.STRING
     }
   });
 
-  return Comment;
+  return users;
 };
