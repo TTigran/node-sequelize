@@ -17,7 +17,7 @@ db.sequelize = sequelize;
 db.products = require("./products.js")(sequelize, Sequelize);
 db.users = require("./users.js")(sequelize, Sequelize);
 
-db.users.hasOne(db.products, {as: "users"});
-db.products.belongsTo(db.users, { as: "products"});
+db.users.hasOne(db.products, );
+db.products.belongsTo(db.users, );
 
 module.exports = db;
