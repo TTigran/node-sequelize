@@ -2,7 +2,7 @@ const config = require('../config').test;
 const Sequelize = require("sequelize");
 
 const {name, username, password, host, database, dialect} = config;
-console.log("dialect")
+
 const sequelize = new Sequelize(name, username, password, {
     host,
     dialect,

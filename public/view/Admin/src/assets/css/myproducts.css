@@ -1,0 +1,10 @@
+.group-products {
+    display: flex;
+    justify-content: flex-start;
+}
+.card-product{
+    margin-left: 2vmin;
+}
+.card-product{
+    text-align: center;
+}
