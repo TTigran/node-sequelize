@@ -1,18 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const path =require('path')
+const usersRouter  = require("./routes/index");
+
+
+const path = require('path');
 const cors = require("cors");
 
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:8080"
-};
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+}
 
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
-
+app.use("/api/v1", usersRouter);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./models");
@@ -35,6 +41,14 @@ app.get('/shoes.html', function(req, res) {
 app.get('/contact.html', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/view/contact.html'));
 });
+app.get('/api', function(req, res) {
+    res.json({a:2});
+});
+
+app.post('/users',(req,res)=>{
+    console.log(req.body)
+})
+
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/view/index.html'));

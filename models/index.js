@@ -7,7 +7,7 @@ const sequelize = new Sequelize(name, username, password, {
     host,
     dialect,
     database,
-    operatorsAliases: false,
+
 });
 
 const db = {};
